@@ -5,15 +5,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 backend_url = os.getenv(
-    'backend_url', default="http://localhost:3030")
+    'backend_url', default="http://localhost:3030"
+)
 
 sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
-    default="http://localhost:5050/")
+    default="http://localhost:5050/"
+)
 
 # ----------------------------------------
 # GET request
 # ----------------------------------------
+
+
 def get_request(endpoint, **kwargs):
     request_url = backend_url + endpoint
 
@@ -31,6 +35,8 @@ def get_request(endpoint, **kwargs):
 # ----------------------------------------
 # Sentiment Analysis
 # ----------------------------------------
+
+
 def analyze_review_sentiments(text):
     request_url = sentiment_analyzer_url + "analyze/" + text
 
@@ -48,6 +54,8 @@ def analyze_review_sentiments(text):
 # ----------------------------------------
 # POST review
 # ----------------------------------------
+
+
 def post_review(data_dict):
     request_url = backend_url + "/insert_review"
 
